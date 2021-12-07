@@ -1,0 +1,32 @@
+Making backup directory in /data/BACKUPS/PG/X1_local/2021-12-07-daily/
+
+
+Performing globals backup
+--------------------------------------------
+
+Globals backup
+
+
+Performing schema-only backups
+--------------------------------------------
+
+The following databases were matched for schema-only backup:
+
+
+
+
+Performing full backups
+--------------------------------------------
+
+Plain backup of postgres
+Custom backup of postgres
+Plain backup of refgeo12
+Custom backup of refgeo12
+Plain backup of rls_test
+Custom backup of rls_test
+Plain backup of seqens
+Custom backup of seqens
+Plain backup of test
+Custom backup of test
+
+All database backups complete!

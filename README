@@ -1,0 +1,23 @@
+# postgres backup scripts	
+
+adaptated from https://wiki.postgresql.org/wiki/Automated_Backup_on_Linux
+
+## Usage
+
+give execution privileges to script you want to use
+
+`chmod +x pg_backup.sh`
+`chmod +x pg_backup_rotated.sh`
+
+### Run manually :
+
+`./pg_backup.sh` or `bash -f pg_backup.sh`
+
+### Run with CRON Job
+
+Edit your crontab (Note: choose the right user to use crontab from. postgres is common choice if running on the server hosting the database)
+
+`crontab -e` 
+
+Add this line and adapt paths and mailing options. A mail is sent in case of error
+`/pathtoscript/pg_backup_rotated.sh 2>&1 | tee output.txt | mail -s "Email subject" me@mymail.com` 
