@@ -19,5 +19,13 @@ Edit your crontab (Note: choose the right user to use crontab from. postgres is 
 
 `crontab -e` 
 
-Add this line and adapt paths and mailing options. A mail is sent in case of error
+Add this line and adapt paths and mailing options.
+
 `/pathtoscript/pg_backup_rotated.sh 2>&1 | tee output.txt | mail -s "Email subject" me@mymail.com` 
+
+### Dependencies
+
+- bash 
+- psql client 
+- gzip
+
