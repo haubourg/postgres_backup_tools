@@ -168,6 +168,16 @@ function perform_backups()
 			fi
 		fi
 
+		if [ $ENABLE_DIRECTORY_BACKUPS = "yes" ]
+		then
+			echo "Directory backup of $DATABASE with $DIRECTORY_BACKUPS_PARALLEL_JOBS parallel jobs"
+	
+			if ! pg_dump -Fd -j "$DIRECTORY_BACKUPS_PARALLEL_JOBS" -h "$HOSTNAME" -U "$USERNAME" "$DATABASE" -p "$PORTNUMBER" -f $FINAL_BACKUP_DIR/"$DATABASE".directory.in_progress; then
+				echo "[!!ERROR!!] Failed to produce directory backup database /$DATABASE"
+			else
+				mv $FINAL_BACKUP_DIR/"$DATABASE".directory.in_progress $FINAL_BACKUP_DIR/"$DATABASE".directory
+			fi
+		fi
 	done
 
 	echo -e "\nAll database backups complete!"
