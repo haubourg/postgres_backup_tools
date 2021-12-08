@@ -116,7 +116,7 @@ function perform_backups()
 	
 	for DATABASE in $SCHEMA_ONLY_DB_LIST
 	do
-	        echo "Schema-only backup of $DATABASE"
+	        echo "Schema-only backup of $DATABASE - plain SQL format + gzip compression"
 		set -o pipefail
 	        if ! pg_dump -Fp -s -h "$HOSTNAME" -U "$USERNAME" "$DATABASE" | gzip > $FINAL_BACKUP_DIR"$DATABASE"_SCHEMA.sql.gz.in_progress; then
 	                echo "[!!ERROR!!] Failed to backup database schema of $DATABASE" 1>&2
